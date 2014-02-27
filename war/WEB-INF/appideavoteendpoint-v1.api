@@ -1,0 +1,269 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://amiable-reducer-470.appspot.com/_ah/api",
+  "name" : "appideavoteendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://amiable-reducer-470.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "appsack.com",
+  "ownerName" : "appsack.com",
+  "packagePath" : "androidappsack.model",
+  "methods" : {
+    "appideavoteendpoint.getAppIdeaVote" : {
+      "path" : "appideavote/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaVoteEndpoint.getAppIdeaVote",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideavoteendpoint.insertAppIdeaVote" : {
+      "path" : "appideavote",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaVoteEndpoint.insertAppIdeaVote",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideavoteendpoint.listAppIdeaVote" : {
+      "path" : "appideavote",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaVoteEndpoint.listAppIdeaVote",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideavoteendpoint.updateAppIdeaVote" : {
+      "path" : "appideavote",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaVoteEndpoint.updateAppIdeaVote",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideavoteendpoint.removeAppIdeaVote" : {
+      "path" : "appideavote/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaVoteEndpoint.removeAppIdeaVote",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "appideavoteendpoint.getVotesByAppIdea" : {
+      "path" : "appideavotecollection/{appIdeaId}/{vote}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaVoteEndpoint.getVotesByAppIdea",
+      "request" : {
+        "parameters" : {
+          "appIdeaId" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "vote" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "AppIdeaVote" : {
+        "id" : "AppIdeaVote",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "$ref" : "Key"
+          },
+          "vote" : {
+            "type" : "integer"
+          },
+          "appIdeaId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "userId" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "Key" : {
+        "id" : "Key",
+        "type" : "object",
+        "properties" : {
+          "kind" : {
+            "type" : "string"
+          },
+          "appId" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "Key"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "namespace" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_AppIdeaVote" : {
+        "id" : "CollectionResponse_AppIdeaVote",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "AppIdeaVote"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AppIdeaVoteCollection" : {
+        "id" : "AppIdeaVoteCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "AppIdeaVote"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.appsack.api.AppIdeaVoteEndpoint.getAppIdeaVote" : {
+        "response" : {
+          "$ref" : "AppIdeaVote"
+        }
+      },
+      "com.appsack.api.AppIdeaVoteEndpoint.insertAppIdeaVote" : {
+        "request" : {
+          "$ref" : "AppIdeaVote"
+        },
+        "response" : {
+          "$ref" : "AppIdeaVote"
+        }
+      },
+      "com.appsack.api.AppIdeaVoteEndpoint.listAppIdeaVote" : {
+        "response" : {
+          "$ref" : "CollectionResponse_AppIdeaVote"
+        }
+      },
+      "com.appsack.api.AppIdeaVoteEndpoint.updateAppIdeaVote" : {
+        "request" : {
+          "$ref" : "AppIdeaVote"
+        },
+        "response" : {
+          "$ref" : "AppIdeaVote"
+        }
+      },
+      "com.appsack.api.AppIdeaVoteEndpoint.removeAppIdeaVote" : {
+      },
+      "com.appsack.api.AppIdeaVoteEndpoint.getVotesByAppIdea" : {
+        "response" : {
+          "$ref" : "AppIdeaVoteCollection"
+        }
+      }
+    }
+  }
+}

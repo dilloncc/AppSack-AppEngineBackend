@@ -1,0 +1,230 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://amiable-reducer-470.appspot.com/_ah/api",
+  "name" : "appideachangelogendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://amiable-reducer-470.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "appsack.com",
+  "ownerName" : "appsack.com",
+  "packagePath" : "androidappsack.model",
+  "methods" : {
+    "appideachangelogendpoint.updateAppIdeaChangeLog" : {
+      "path" : "appideachangelog",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaChangeLogEndpoint.updateAppIdeaChangeLog",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideachangelogendpoint.getAppIdeaChangeLog" : {
+      "path" : "appideachangelog/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaChangeLogEndpoint.getAppIdeaChangeLog",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideachangelogendpoint.insertAppIdeaChangeLog" : {
+      "path" : "appideachangelog",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaChangeLogEndpoint.insertAppIdeaChangeLog",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideachangelogendpoint.removeAppIdeaChangeLog" : {
+      "path" : "appideachangelog/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaChangeLogEndpoint.removeAppIdeaChangeLog",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "appideachangelogendpoint.listAppIdeaChangeLog" : {
+      "path" : "appideachangelog",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaChangeLogEndpoint.listAppIdeaChangeLog",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "AppIdeaChangeLog" : {
+        "id" : "AppIdeaChangeLog",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "$ref" : "Key"
+          },
+          "appIdeaId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "fieldChanged" : {
+            "type" : "string"
+          },
+          "valueBeforeChange" : {
+            "type" : "string"
+          },
+          "dateChanged" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Key" : {
+        "id" : "Key",
+        "type" : "object",
+        "properties" : {
+          "kind" : {
+            "type" : "string"
+          },
+          "appId" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "Key"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "namespace" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_AppIdeaChangeLog" : {
+        "id" : "CollectionResponse_AppIdeaChangeLog",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "AppIdeaChangeLog"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.appsack.api.AppIdeaChangeLogEndpoint.updateAppIdeaChangeLog" : {
+        "request" : {
+          "$ref" : "AppIdeaChangeLog"
+        },
+        "response" : {
+          "$ref" : "AppIdeaChangeLog"
+        }
+      },
+      "com.appsack.api.AppIdeaChangeLogEndpoint.getAppIdeaChangeLog" : {
+        "response" : {
+          "$ref" : "AppIdeaChangeLog"
+        }
+      },
+      "com.appsack.api.AppIdeaChangeLogEndpoint.insertAppIdeaChangeLog" : {
+        "request" : {
+          "$ref" : "AppIdeaChangeLog"
+        },
+        "response" : {
+          "$ref" : "AppIdeaChangeLog"
+        }
+      },
+      "com.appsack.api.AppIdeaChangeLogEndpoint.removeAppIdeaChangeLog" : {
+      },
+      "com.appsack.api.AppIdeaChangeLogEndpoint.listAppIdeaChangeLog" : {
+        "response" : {
+          "$ref" : "CollectionResponse_AppIdeaChangeLog"
+        }
+      }
+    }
+  }
+}

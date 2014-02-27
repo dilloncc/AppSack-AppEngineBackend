@@ -1,0 +1,278 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"FWXGb4Q2eZqWRcG8B2Ixrr-vrqQ/9U-j7yXwTL-hn79LaoN3nAD4BDA\"",
+ "discoveryVersion": "v1",
+ "id": "appideavoteendpoint:v1",
+ "name": "appideavoteendpoint",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "appsack.com",
+ "ownerName": "appsack.com",
+ "packagePath": "androidappsack.model",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://amiable-reducer-470.appspot.com/_ah/api/appideavoteendpoint/v1/",
+ "basePath": "/_ah/api/appideavoteendpoint/v1/",
+ "rootUrl": "https://amiable-reducer-470.appspot.com/_ah/api/",
+ "servicePath": "appideavoteendpoint/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "AppIdeaVote": {
+   "id": "AppIdeaVote",
+   "type": "object",
+   "properties": {
+    "appIdeaId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "key": {
+     "$ref": "Key"
+    },
+    "userId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "vote": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "AppIdeaVoteCollection": {
+   "id": "AppIdeaVoteCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "AppIdeaVote"
+     }
+    }
+   }
+  },
+  "CollectionResponse_AppIdeaVote": {
+   "id": "CollectionResponse_AppIdeaVote",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "AppIdeaVote"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "Key": {
+   "id": "Key",
+   "type": "object",
+   "properties": {
+    "appId": {
+     "type": "string"
+    },
+    "complete": {
+     "type": "boolean"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "kind": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "namespace": {
+     "type": "string"
+    },
+    "parent": {
+     "$ref": "Key"
+    }
+   }
+  }
+ },
+ "methods": {
+  "getAppIdeaVote": {
+   "id": "appideavoteendpoint.getAppIdeaVote",
+   "path": "appideavote/{id}",
+   "httpMethod": "GET",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "response": {
+    "$ref": "AppIdeaVote"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getVotesByAppIdea": {
+   "id": "appideavoteendpoint.getVotesByAppIdea",
+   "path": "appideavotecollection/{appIdeaId}/{vote}",
+   "httpMethod": "GET",
+   "parameters": {
+    "appIdeaId": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "path"
+    },
+    "vote": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "appIdeaId",
+    "vote"
+   ],
+   "response": {
+    "$ref": "AppIdeaVoteCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "insertAppIdeaVote": {
+   "id": "appideavoteendpoint.insertAppIdeaVote",
+   "path": "appideavote",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "AppIdeaVote",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "AppIdeaVote"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "listAppIdeaVote": {
+   "id": "appideavoteendpoint.listAppIdeaVote",
+   "path": "appideavote",
+   "httpMethod": "GET",
+   "parameters": {
+    "cursor": {
+     "type": "string",
+     "location": "query"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "location": "query"
+    }
+   },
+   "response": {
+    "$ref": "CollectionResponse_AppIdeaVote"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "removeAppIdeaVote": {
+   "id": "appideavoteendpoint.removeAppIdeaVote",
+   "path": "appideavote/{id}",
+   "httpMethod": "DELETE",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "updateAppIdeaVote": {
+   "id": "appideavoteendpoint.updateAppIdeaVote",
+   "path": "appideavote",
+   "httpMethod": "PUT",
+   "request": {
+    "$ref": "AppIdeaVote",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "AppIdeaVote"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}
