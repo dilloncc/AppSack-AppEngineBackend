@@ -64,22 +64,6 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "appideachangelogendpoint.insertAppIdeaChangeLog" : {
-      "path" : "appideachangelog",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appsack.api.AppIdeaChangeLogEndpoint.insertAppIdeaChangeLog",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "appideachangelogendpoint.removeAppIdeaChangeLog" : {
       "path" : "appideachangelog/{id}",
       "httpMethod" : "DELETE",
@@ -99,6 +83,22 @@
       },
       "response" : {
         "body" : "empty"
+      }
+    },
+    "appideachangelogendpoint.insertAppIdeaChangeLog" : {
+      "path" : "appideachangelog",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaChangeLogEndpoint.insertAppIdeaChangeLog",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
       }
     },
     "appideachangelogendpoint.listAppIdeaChangeLog" : {
@@ -169,14 +169,14 @@
           "name" : {
             "type" : "string"
           },
-          "parent" : {
-            "$ref" : "Key"
+          "namespace" : {
+            "type" : "string"
           },
           "complete" : {
             "type" : "boolean"
           },
-          "namespace" : {
-            "type" : "string"
+          "parent" : {
+            "$ref" : "Key"
           }
         }
       },
@@ -210,6 +210,8 @@
           "$ref" : "AppIdeaChangeLog"
         }
       },
+      "com.appsack.api.AppIdeaChangeLogEndpoint.removeAppIdeaChangeLog" : {
+      },
       "com.appsack.api.AppIdeaChangeLogEndpoint.insertAppIdeaChangeLog" : {
         "request" : {
           "$ref" : "AppIdeaChangeLog"
@@ -217,8 +219,6 @@
         "response" : {
           "$ref" : "AppIdeaChangeLog"
         }
-      },
-      "com.appsack.api.AppIdeaChangeLogEndpoint.removeAppIdeaChangeLog" : {
       },
       "com.appsack.api.AppIdeaChangeLogEndpoint.listAppIdeaChangeLog" : {
         "response" : {

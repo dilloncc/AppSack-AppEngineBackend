@@ -27,22 +27,6 @@
   "ownerName" : "appsack.com",
   "packagePath" : "androidappsack.model",
   "methods" : {
-    "appideaendpoint.insertAppIdea" : {
-      "path" : "appidea",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.appsack.api.AppIdeaEndpoint.insertAppIdea",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "appideaendpoint.getAppIdea" : {
       "path" : "appidea/{id}",
       "httpMethod" : "GET",
@@ -59,6 +43,22 @@
           }
         },
         "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "appideaendpoint.insertAppIdea" : {
+      "path" : "appidea",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.appsack.api.AppIdeaEndpoint.insertAppIdea",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -216,14 +216,14 @@
           "name" : {
             "type" : "string"
           },
-          "parent" : {
-            "$ref" : "Key"
+          "namespace" : {
+            "type" : "string"
           },
           "complete" : {
             "type" : "boolean"
           },
-          "namespace" : {
-            "type" : "string"
+          "parent" : {
+            "$ref" : "Key"
           }
         }
       },
@@ -244,15 +244,15 @@
       }
     },
     "methods" : {
-      "com.appsack.api.AppIdeaEndpoint.insertAppIdea" : {
-        "request" : {
-          "$ref" : "AppIdea"
-        },
+      "com.appsack.api.AppIdeaEndpoint.getAppIdea" : {
         "response" : {
           "$ref" : "AppIdea"
         }
       },
-      "com.appsack.api.AppIdeaEndpoint.getAppIdea" : {
+      "com.appsack.api.AppIdeaEndpoint.insertAppIdea" : {
+        "request" : {
+          "$ref" : "AppIdea"
+        },
         "response" : {
           "$ref" : "AppIdea"
         }
